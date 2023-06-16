@@ -82,6 +82,8 @@ while True:
     cmd = 'cut -f 1 -d " " /proc/loadavg'
     CPU = subprocess.check_output(cmd, shell=True).decode("utf-8")
     CPU = CPU.strip()
+    # Since 'CPU' is str in float_format, then cannot convert directly via 'int()'.  Use 'float()' first. :)
+    CPU_02 = str( int((float(CPU)/4)*100) ) + "%"
 
     ###jwc o cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%s MB  %.2f%%\", $3,$2,$3*100/$2 }'"
     cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'"
@@ -111,7 +113,8 @@ while True:
     ###jwc o draw.text((x, top + 8), "CPU load: " + CPU, font=font, fill=255)
     ###jwc n draw.text((x, top + 8), "CPU: " + CPU + " " + Disk, font=font, fill=255)
     ###jwc y draw.text((x, top + 8), "CPU: " + CPU, font=font, fill=255)
-    draw.text((x, top + 8), "CPU: " + CPU + " " + Disk, font=font, fill=255)
+    ###jwc yy draw.text((x, top + 8), "CPU: " + CPU + " " + Disk, font=font, fill=255)
+    draw.text((x, top + 8), "CPU: " + CPU_02 + " " + Disk, font=font, fill=255)
     draw.text((x, top + 16), MemUsage, font=font, fill=255)
     ###jwc o draw.text((x, top + 25), Disk, font=font, fill=255)
     draw.text((x, top + 25), DateTime, font=font, fill=255)
