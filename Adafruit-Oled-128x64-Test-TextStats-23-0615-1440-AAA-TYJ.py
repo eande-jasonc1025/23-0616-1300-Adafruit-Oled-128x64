@@ -82,7 +82,6 @@ while True:
     cmd = 'cut -f 1 -d " " /proc/loadavg'
     CPU = subprocess.check_output(cmd, shell=True).decode("utf-8")
     CPU = CPU.strip()
-    
 
     ###jwc o cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%s MB  %.2f%%\", $3,$2,$3*100/$2 }'"
     cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'"
