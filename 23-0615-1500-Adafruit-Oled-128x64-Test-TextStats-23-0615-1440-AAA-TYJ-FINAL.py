@@ -1,5 +1,5 @@
 # IMPORTANT TODOS #
-# -- Add time
+# |-- Add time
 
 # SPDX-FileCopyrightText: 2017 Tony DiCola for Adafruit Industries
 # SPDX-FileCopyrightText: 2017 James DeVito for Adafruit Industries
@@ -62,6 +62,8 @@ font = ImageFont.load_default()
 # same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
 # font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 9)
+
+print('Starting: Adafruit-Oled-128x64...')
 
 while True:
     # Draw a black filled box to clear the image.
